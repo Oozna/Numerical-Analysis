@@ -1,3 +1,4 @@
-# Repository for Matlab and Python-scripts for the course MA069G in Numerical Analysis
+# Repo for Matlab and Python-scripts
+## Course MA069G, Mathematical Modeling / Numerical Analysis
 
 By Eric Johansson and Can Kupeli
