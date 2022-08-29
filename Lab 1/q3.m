@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 
 x0 = 7;

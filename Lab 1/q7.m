@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 SecantMethod(-1.4,-1.3)
 SecantMethod(1.8,2)

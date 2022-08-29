@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 x_0 = fzero('-cos(x)-0.2*x',-1);
 x_1 = fzero('-cos(x)-0.2*x',2);

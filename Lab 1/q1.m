@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 x0 = 7;
 
@@ -17,12 +15,9 @@ D2_h1 = D2(x0, h1);
 D2_h2 = D2(x0, h2);
 
 
-line1 = sprintf("h \t %.15f \t %.15f \t %.15f", h0,h1,h2);
-line2 = sprintf("D1 \t %.15f \t %.15f \t %.15f" ,D1_h0,D1_h1,D1_h2);
-line3 = sprintf("D2 \t %.15f \t %.15f \t %.15f" ,D2_h0,D2_h1,D2_h2);
-disp(line1)
-disp(line2)
-disp(line3)
+fprintf("h \t %.15f \t %.15f \t %.15f\n", h0,h1,h2);
+fprintf("D1 \t %.15f \t %.15f \t %.15f\n" ,D1_h0,D1_h1,D1_h2);
+fprintf("D2 \t %.15f \t %.15f \t %.15f\n" ,D2_h0,D2_h1,D2_h2);
 
 function ret = D1(x0, h)
 	ret = (f(x0+h)-f(x0))/h;

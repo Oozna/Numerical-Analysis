@@ -1,0 +1,3 @@
+format long 
+clear
+clc

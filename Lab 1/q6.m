@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 NR(-1)
 NR(2)

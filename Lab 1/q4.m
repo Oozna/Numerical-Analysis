@@ -1,6 +1,4 @@
-format long
-clear
-clc
+header
 
 
 syms f(x)
