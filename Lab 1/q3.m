@@ -6,7 +6,7 @@ h = 0.02;
 k = 2*(2*f(x0+h/2)-f(x0+h)-f(x0) )/h^2;
 
 f_prim = (f(x0+h)-f(x0))/h + k*h;
-to_print = sprintf("Approximated value at x=7 is %.15f", f_prim);
+to_print = sprintf("k = %.15f \nApproximated value at x=7 is %.15f",k, f_prim);
 
 disp(to_print)
 

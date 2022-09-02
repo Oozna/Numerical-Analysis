@@ -5,6 +5,7 @@ SecantMethod(1.8,2)
 SecantMethod(3.7,3.9)
 
 function SecantMethod(left, right)
+    fprintf("\nSecant Method with left %f and right %f\n", left, right)
     iteration = 0;
 
     while abs(left-right) > 10^-15
