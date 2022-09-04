@@ -16,7 +16,7 @@
 \usepackage{amsmath}
 \usepackage{fancyhdr}   %page header
 \usepackage[margin=1in]{geometry}
-
+\setcounter{secnumdepth}{0}
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -36,7 +36,7 @@
 
 
 \begin{document}
-  \begin{titlepage}
+\begin{titlepage}
 	\begin{center}
 		\vspace*{1cm}
 
@@ -52,7 +52,7 @@
 		\getcourse{}
 		\vspace{1cm}
 
-        \Large
+		\Large
 		\textbf{\getauthor}\\
 
 		\vfill
@@ -70,21 +70,22 @@
 \end{titlepage}
 \tableofcontents
 \newpage
+\lhead{Laboration 1}
+\rhead{Eric, Can, Samuel}
 
-  
-\section{}
+\section{Question 1}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q1_code.png}
-	\caption{Code for question one}
+	\caption{Code for question 1}
 	\label{fig:q1_code}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q1_results.png}
-	\caption{Output for question one}
+	\caption{Results for question 1}
 	\label{fig:q1_results}
 \end{figure}
 
@@ -92,7 +93,7 @@ By these results we can deduce that D2, the central difference, is closer to the
 truncation error of $O(h^2)$ whereas the forward difference only has $O(h)$. $O(h^{2})$ is more prefferable to $O(h)$ because when $\lim_{h \to 0}$ the term $O(h^{2})$ converges towards $0$ faster than $O(h)$.
 
 \newpage
-\section{}
+\section{Question 2}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth{}]{imgs/q2_code.png}
@@ -110,7 +111,7 @@ truncation error of $O(h^2)$ whereas the forward difference only has $O(h)$. $O(
 We can see here that the answer we got is the same as the real value up to 15 decimal places.
 
 \newpage
-\section{}
+\section{Question 3}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q3_code.png}
@@ -129,7 +130,7 @@ The answer is not exact because our $h$-value is not close enough to $0$ which m
 
 
 \newpage
-\section{}
+\section{Question 4}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q4_code.png}
@@ -145,7 +146,7 @@ The answer is not exact because our $h$-value is not close enough to $0$ which m
 \end{figure}
 
 \newpage
-\section{}
+\section{Question 5}
 
 \begin{figure}[H]
 	\centering
@@ -162,7 +163,7 @@ The answer is not exact because our $h$-value is not close enough to $0$ which m
 \end{figure}
 
 \newpage
-\section{}
+\section{Question 6}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q6_code.png}
@@ -182,7 +183,7 @@ If we chose a starting value of 3 we could see that the script did not converge 
 We can see that even with a small tolerance of $10^{-15}$ we only need around $4-5$ iterations to reach a root. We also tried with other tolerances but showing each result would take up too much space.
 
 \newpage
-\section{}
+\section{Question 7}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q7_code.png}
@@ -197,12 +198,12 @@ We can see that even with a small tolerance of $10^{-15}$ we only need around $4
 	\label{fig:q7_result}
 \end{figure}
 
-We can see that this method has slightly more iterations than the Newton Rhapson method had in the previous question. The notable differnce in uses of the functions is that the Secant method only needs the function itselft and not it's derivative but needs two initial guesses. 
+We can see that this method has slightly more iterations than the Newton Rhapson method had in the previous question. The notable differnce in uses of the functions is that the Secant method only needs the function itselft and not it's derivative but needs two initial guesses.
 Newton Rhapson on the other hand only requires one guess but needs the functions derivative. The Newton method generally converges a bit faster than the Secant method which is supported by our tests.
 
 
 \newpage
-\section{}
+\section{Question 8}
 
 \begin{figure}[H]
 	\centering
