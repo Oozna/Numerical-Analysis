@@ -88,8 +88,8 @@
 	\label{fig:q1_results}
 \end{figure}
 
-By these results we can deduce that D2, the central difference, is closer to the actual value of $f^\prime(x_0)$. This is because the method has a
-truncation error of $O(h^2)$ whereas the forward difference only has $O(h)$. $O(h^{2})$ is more prefferable to $O(h)$ because when $\lim_{h \to 0}$ the term $O(h^{2})$ converges towards $0$ faster than $O(h)$.
+These results show that D2, the central difference, is closer to the actual value of $f^\prime(x_0)$. This is because the method has a
+truncation error of $O(h^2)$, whereas the forward difference only has $O(h)$. $O(h^{2})$ is more prefferable to $O(h)$ because when $\lim_{h \to 0}$ the term $O(h^{2})$ converges towards $0$ faster than $O(h)$.
 
 \newpage
 \section{}
@@ -106,8 +106,7 @@ truncation error of $O(h^2)$ whereas the forward difference only has $O(h)$. $O(
 	\caption{Results for question 2}
 	\label{fig:q2_results}
 \end{figure}
-
-We can see here that the answer we got is the same as the real value up to 15 decimal places.
+The outputted value, shown in figure 4, is equal to the actual value of the functions derivative, with a precision of at least 15 decimal places.
 
 \newpage
 \section{}
@@ -124,9 +123,7 @@ We can see here that the answer we got is the same as the real value up to 15 de
 	\caption{Results for question 3}
 	\label{fig:q3_result}
 \end{figure}
-
-The answer is not exact because our $h$-value is not close enough to $0$ which means that our approximation of $k$ won't be exact.
-
+Due to the given $h$-value being relatively far from $0$, the approximation of $k$ and consequently the derivative, were a few deiciamls off from the correct value.
 
 \newpage
 \section{}
@@ -176,11 +173,9 @@ The answer is not exact because our $h$-value is not close enough to $0$ which m
 	\caption{Results for question 6}
 	\label{fig:q6_result}
 \end{figure}
+The Newton Rhapson method does not converge if the derivative at the given point is 0. An initial value of 3 is not an appropriate basin of attraction, this consequently caused the script to repeat indefinetly, as opposed to converging. 
 
-If we chose a starting value of 3 we could see that the script did not converge so it kept repeating forever. The Newton Rhapson method does not converge if the derivative is $0$ at the chosen starting point.
-
-We can see that even with a small tolerance of $10^{-15}$ we only need around $4-5$ iterations to reach a root. We also tried with other tolerances but showing each result would take up too much space.
-
+Roughly 5 interations were required to reach each root when the methods tolerance was set to $10^{-15}$. Other tolerances were tested, though not included as they were deemed inconsequential.
 \newpage
 \section{}
 \begin{figure}[H]
@@ -196,11 +191,9 @@ We can see that even with a small tolerance of $10^{-15}$ we only need around $4
 	\caption{Results for question 7}
 	\label{fig:q7_result}
 \end{figure}
+The Secant method requires more iterations to converge as opposed to the Newton Rhapson method, this evidently means that the Newton Rhapson method will generally converge quicker.
 
-We can see that this method has slightly more iterations than the Newton Rhapson method had in the previous question. The notable differnce in uses of the functions is that the Secant method only needs the function itselft and not it's derivative but needs two initial guesses. 
-Newton Rhapson on the other hand only requires one guess but needs the functions derivative. The Newton method generally converges a bit faster than the Secant method which is supported by our tests.
-
-
+The notable difference between either functions is that the Secant method only requires the function and two starting values. The Newton Rhapson method on the other hand requires only one starting value, but does also require the functions derivative. 
 \newpage
 \section{}
 
