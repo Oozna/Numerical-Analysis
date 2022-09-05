@@ -16,7 +16,7 @@
 \usepackage{amsmath}
 \usepackage{fancyhdr}   %page header
 \usepackage[margin=1in]{geometry}
-
+\setcounter{secnumdepth}{0}
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -36,7 +36,7 @@
 
 
 \begin{document}
-  \begin{titlepage}
+\begin{titlepage}
 	\begin{center}
 		\vspace*{1cm}
 
@@ -52,7 +52,7 @@
 		\getcourse{}
 		\vspace{1cm}
 
-        \Large
+		\Large
 		\textbf{\getauthor}\\
 
 		\vfill
@@ -70,21 +70,22 @@
 \end{titlepage}
 \tableofcontents
 \newpage
+\lhead{Laboration 1}
+\rhead{Eric, Can, Samuel}
 
-  
-\section{}
+\section{Question 1}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q1_code.png}
-	\caption{Code for question one}
+	\caption{Code for question 1}
 	\label{fig:q1_code}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q1_results.png}
-	\caption{Output for question one}
+	\caption{Results for question 1}
 	\label{fig:q1_results}
 \end{figure}
 
@@ -92,7 +93,7 @@ These results show that D2, the central difference, is closer to the actual valu
 truncation error of $O(h^2)$, whereas the forward difference only has $O(h)$. $O(h^{2})$ is more prefferable to $O(h)$ because when $\lim_{h \to 0}$ the term $O(h^{2})$ converges towards $0$ faster than $O(h)$.
 
 \newpage
-\section{}
+\section{Question 2}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth{}]{imgs/q2_code.png}
@@ -109,7 +110,7 @@ truncation error of $O(h^2)$, whereas the forward difference only has $O(h)$. $O
 The outputted value, shown in figure 4, is equal to the actual value of the functions derivative, with a precision of at least 15 decimal places.
 
 \newpage
-\section{}
+\section{Question 3}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q3_code.png}
@@ -126,7 +127,7 @@ The outputted value, shown in figure 4, is equal to the actual value of the func
 Due to the given $h$-value being relatively far from $0$, the approximation of $k$ and consequently the derivative, were a few deiciamls off from the correct value.
 
 \newpage
-\section{}
+\section{Question 4}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{imgs/q4_code.png}
@@ -142,7 +143,7 @@ Due to the given $h$-value being relatively far from $0$, the approximation of $
 \end{figure}
 
 \newpage
-\section{}
+\section{Question 5}
 
 \begin{figure}[H]
 	\centering
@@ -159,7 +160,7 @@ Due to the given $h$-value being relatively far from $0$, the approximation of $
 \end{figure}
 
 \newpage
-\section{}
+\section{Question 6}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q6_code.png}
@@ -177,7 +178,7 @@ The Newton Rhapson method does not converge if the derivative at the given point
 
 Roughly 5 interations were required to reach each root when the methods tolerance was set to $10^{-15}$. Other tolerances were tested, though not included as they were deemed inconsequential.
 \newpage
-\section{}
+\section{Question 7}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{imgs/q7_code.png}

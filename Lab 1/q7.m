@@ -1,14 +1,16 @@
 header
 
-SecantMethod(-1.4,-1.3)
-SecantMethod(1.8,2)
-SecantMethod(3.7,3.9)
+tolerance = 10^-15
 
-function SecantMethod(left, right)
+SecantMethod(-1.4,-1.3, tolerance)
+SecantMethod(1.8,2, tolerance)
+SecantMethod(3.7,3.9, tolerance)
+
+function SecantMethod(left, right, tolerance)
     fprintf("\nSecant Method with left %f and right %f\n", left, right)
     iteration = 0;
 
-    while abs(left-right) > 10^-15
+    while abs(left-right) > tolerance
         x2=(left*F(right)-right*F(left))/(F(right)-F(left));
         left=right;        
         right=x2;
