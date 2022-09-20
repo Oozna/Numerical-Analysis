@@ -23,5 +23,5 @@ end
 sigma = sqrt(35/(12*n));
 mu = 3.5;
 x =2.8:0.01:4.2;
-f = 1/(sigma*2*pi)*exp(-((x-mu).^2)/(2*sigma.^2));
-plot(x,2000*f);
+f = 1/(sigma*sqrt(2*pi))*exp(-((x-mu).^2)/(2*sigma.^2));
+plot(x,1000*f, 'Color','red','LineWidth',4);
