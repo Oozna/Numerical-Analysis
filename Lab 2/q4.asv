@@ -1,7 +1,0 @@
-header
-cumwinloss = 0;
-day = 1;
-
-while day < 366
-    cumwinloss = cumwinloss + blackjacksim
-end
