@@ -3,7 +3,7 @@ clear
 clc
 format long
 
-n = 200; %antal kast per medelvärde
+n = 200;  %antal kast per medelvärde
 N = 10^5; %antal upprepningar
 for i=1:length(N)
     figure;
