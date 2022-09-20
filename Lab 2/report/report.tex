@@ -5,8 +5,9 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{float}
+\usepackage{subcaption}
 \usepackage{url}
-\usepackage[hidelinks]{hyperref}
+\usepackage{float}
 \usepackage{siunitx}
 \usepackage{datetime}
 \usepackage[title]{appendix}
@@ -26,6 +27,7 @@
 
 \usepackage{xcolor}
 \usepackage{listings}   %code section 
+\usepackage[hidelinks]{hyperref}
 
 
 
@@ -75,6 +77,148 @@
 
 
 \section{Question 1}
+\subsection{(a)}
+\begin{figure}[h]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1a_100.png}
+        \caption{100 Randomly generated numbers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1a_1000.png}
+        \caption{1000 Randomly generated numbers}
+    \end{subfigure}
+\end{figure}
+\begin{figure}[h]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1a_10000.png}
+        \caption{10000 Randomly generated numbers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1a_100000.png}
+        \caption{100000 Randomly generated numbers}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1a_1000000.png}
+        \caption{10000 Randomly generated numbers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1_code.png}
+        \caption{Code for question 1}
+    \end{subfigure}
+\end{figure}
+As \( N \) icreases the distubution becomes more alike a Normal distribution.
+
+
+\subsection{(b)}
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1b_10.png}
+        \caption{\( \mu = \) 10}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\linewidth]{./imgs/q1b_100.png}
+        \caption{\( \mu = \) 100}
+    \end{subfigure}
+\end{figure}
+We can see that the distribution is about the same and the main difference is that they are centered
+around different values.
+
+\subsection{(c)}
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.33\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q1c_1.png}
+        \caption{\( \sigma^2 =1 \)}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.33\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q1c_10.png}
+        \caption{\( \sigma^2 = 10\)}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.33\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q1c_50.png}
+        \caption{\( \sigma^2 = 50\)}
+    \end{subfigure}
+\end{figure}
+Once again the form of the distribution is mostly the same, however we can see now that the values
+extend more to the side as the variance increases. It doesn't increase by five times when comapring 10 to 50 because
+the standard deviation is \( \sqrt{\mathrm{Variance}} \). Since 50 is \( 5\cdot10 \) it means that the standard 
+deviation will incerase by \(\sqrt{5} \) times which is pretty accurate with the results.   
+
+\subsection{(d)}
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q1d_100.png}
+        \caption{\( N=10 \)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q1d_1000000.png}
+        \caption{\( N=1000000\)}
+    \end{subfigure}
+\end{figure}
+We can see that as \( \lim_{N\to \infty}\) the distrubution becomes more like a uniform distobution. 
+
+
+\newpage
+\section{Question 2}
+\subsection{(a)}
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q2a_code.png}
+        \caption{Code for 2a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q2a_result.png}
+        \caption{Results for 2a}
+    \end{subfigure}
+\end{figure}
+Yes as \( N \) increases the resulting average converges to 3.5
+
+\subsection{(b)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{imgs/q2b.png}
+    \caption{Results for 2b}
+\end{figure}
+We can see that it becomes more like a normal distribution as we repeat the test more times
+
+\newpage
+\subsection{(c)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/q2c_result.png}
+    \caption{Results for 2c}
+\end{figure}
+It's possible to observe that the variance of this result is lower than that of question 2b. This is 
+logical since we take the mean of more throws before adding them. This should create fewer outliers and thus lower the variance.
+
+\subsection{(d)}
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q2d_code.png}
+        \caption{Code for 2d}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{imgs/q2d_graph.png}
+        \caption{Results for 2d}
+    \end{subfigure}
+\end{figure}
+The probability function \( f \)  determines the probability of a single dice getting a value, as such we need to multiply it by \( 1000 \) to make it 
+fit our result.
+
+\subsection{(e)}
+
+\section{Question 3}
+\section{Question 4}
 
 
 
