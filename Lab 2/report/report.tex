@@ -212,8 +212,8 @@ logical since we take the mean of more throws before adding them. This should cr
         \caption{Results for 2d}
     \end{subfigure}
 \end{figure}
-The probability function \( f \)  determines the probability of a single dice getting a value, as such we need to multiply it by \( 1000 \) to make it 
-fit our result.
+The magnitude of the function \( f \) is dependent on \( n \) so we need to multiply the function 
+to make it fit our histogram.
 
 \subsection{(e)}
 \begin{figure}[H]
@@ -270,8 +270,21 @@ Looking at their y-values in the histogram they are about a fifth of the height 
     \caption{Code for question 3a}
 \end{figure}
 
+\subsection{(b)}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{imgs/q3b.png}
+    \caption{Question 3b}
+    \label{q3b}
+\end{figure}
+We can see that \( p \) does not change very much depending on the dimension.
+However \( C \) increases a lot when increasing dimention as you can see in Figure \ref{q3b}.
 
+\subsection{(c)}
+
+Monte Carlo is more efficient in higher dimensions than the Trapezoid method. This is because of the \textit{Curse of Dimensionality}
+which states that when dimensionality.
 \newpage
 \section{Question 4}
 
