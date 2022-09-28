@@ -242,36 +242,21 @@ To generate a continuous random variable with a density function, you would take
 \section{Question 3}
 
 \subsection{(a)}
-\begin{figure}[H]
-    \begin{subfigure}[h]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{imgs/q3a_1d_100.png}
-        \caption{1D 100}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[h]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{imgs/q3a_1d_1000000.png}
-        \caption{1D 1000000}
-    \end{subfigure}
-\end{figure}
 
 \begin{figure}[H]
     \begin{subfigure}[h]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{imgs/q3a_2d_100.png}
-        \caption{2D 100}
+        \includegraphics[width=\linewidth]{imgs/q3a_results.png}
+        \caption{Answer to question 3a}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{imgs/q3a_2d_1000000.png}
-        \caption{2D 1000000}
+        \includegraphics[width=\linewidth]{imgs/q3a_code.png}
+        \caption{Code for question 3a}
     \end{subfigure}
 \end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{imgs/q3a_code.png}
-    \caption{Code for question 3a}
-\end{figure}
-
+Yes in 2D it converges to \( \sqrt{\pi} \) while in 3D it converges to \( \pi \). Since
+we're going to 2D it's realistic for the value to be the square of the one in 1D. 
+Just like when going from a line to a square. And this is true in our case sice \( 1D^2\sqrt{\pi}^2=\pi=2D \).
 \subsection{(b)}
 
 \begin{figure}[H]
@@ -281,12 +266,14 @@ To generate a continuous random variable with a density function, you would take
     \label{q3b}
 \end{figure}
 We can see that \( p \) does not change very much depending on the dimension.
-However \( C \) increases a lot when increasing dimention as you can see in Figure \ref{q3b}.
+However \( C \) increases a lot when increasing dimention as you can see in Figure \ref{q3b}, almost tripled.
 
 \subsection{(c)}
 
 Monte Carlo is more efficient in higher dimensions than the Trapezoid method. This is because of the \textit{Curse of Dimensionality}
-which states that when dimensionality.
+which states that when dimensionality increases the amount of data needed grows exponentially with the dimentionality.
+
+The Trapezoid method needs \( 5^d \) points where \( d \) is the dimension.
 \newpage
 \section{Question 4}
 
