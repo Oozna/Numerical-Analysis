@@ -14,9 +14,9 @@ iter = 0;
 while(err > tol)
    s_0 = s;
    s = s_0*overforingsmatris; %odds that current situation occurs, multiplied by percentage next ocurrences
-   err = max(abs(s - s_0));%max difference between current and last iterations precentage
+   err = max(abs(s - s_0));   %max difference between current and last iterations precentage
    iter = iter + 1;
 end
 
-x =  s * (overforingsmatris-eye(3));
-
+mc = dtmc(overforingsmatris);
+real = asymptotics(mc);
