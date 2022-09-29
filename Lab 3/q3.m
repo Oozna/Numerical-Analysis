@@ -7,7 +7,7 @@ P = [0.80 0.15 0.05;
 F = cumsum(P, 2);
 N = 1e6;
 tol = 1e-3;
-count = [0 0 0];
+count = [0 0 0]; % Number of times each situation occurs
 
 % Index for bull, bear and recession
 bull = 1;
@@ -28,6 +28,5 @@ for i = 1:N
    end
 end
 
-%Sannolikheten att vi landar på bull, bear eller recession efter N antal
-%iterationer
-res = count/sum(count);
+%Probability of each situation after N iterations
+res = count/sum(count)
