@@ -145,15 +145,34 @@ The simulation took 1 million iterations to get the results shown in Figure \ref
 
 \section{Question 4}
 \subsection{(a)}
+An example of this type of matrix would be: 
+\[
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        1 & 0 & 0
+    \end{pmatrix}
+\]
+    
 \subsection{(b)}
-\begin{figure}[H]
-    \includegraphics[width=\linewidth]{./imgs/4b.png}
-    \caption{Reducible stochastic process}
-\end{figure}
+An example of this type of matrix would be: 
+\[
+    \begin{pmatrix}
+        \frac{1}{2} & \frac{1}{2} & 0 \\
+        \frac{1}{2} & \frac{1}{2} & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+\]
+
 \subsection{(c)}
 A none memorylessness process is where the steps are determined by the previous step or steps taken. An example of this would be that you cannot return to the previous situation, a recession cannot lead to a bear if the recession was preceded by a bear.
+
 \subsection{(d)}
-We believe B can work
+The types of matrices from (a) could be calculated comparing averages instead of percentages and would lead to a \( \begin{pmatrix}
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3}
+\end{pmatrix} \) result.
+
+The types from (b) could be calculated by using an outer loop to test each starting point and then averaging the results.
 
 
 
