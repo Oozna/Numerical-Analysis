@@ -243,7 +243,8 @@ Looking at their y-values in the histogram they are about a fifth of the height 
 
 To generate a continuous random variable with a density function, you would take the cumulative sum of the density function and then find the inverse of it. Lastly compute it as \(X = F - 1(u)\).
 
-The sampled cumulative distribution function creates a tool that simulates the probabilities of each roll, where their probability corresponds to a precentage of the sample. Due to the inverse sampler being equal to every element it passes in the vector it will be one value too short and will therefore require an increment.
+The sampled cumulative distribution function creates a tool that simulates the probabilities of each roll, where their probability corresponds to a percentage of the sample.
+Creating a random dice roll that follows the correct probability is done through interpolation, inserting a randomly generate number into the cumulative distribution returns a dice roll. Due to the inverse sampler being equal to every element it passes in the vector it will be one value too short and will therefore require an increment.
 
 \newpage
 \section{Question 3}
