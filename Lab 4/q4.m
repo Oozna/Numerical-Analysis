@@ -1,15 +1,15 @@
 header
 % Made by Eric Johansson, Can Kupeli and Samuel Greenberg
 
-
+% o = x + y - 50
 % Objective function
-%max(51.5x + 119.5y - 2o)
+% max(51.5x + 119.5y - 2o)
 
-%Constraints
-%x + y - o <= 50
-%110.5x + 198.5y <= 12000
-%11x + 32y <= 1250
-%o <= 60
+% Constraints
+% 110.5x + 198.5y <= 12000
+%       11x + 32y <= 1250
+%       x + y - o <= 50
+%               o <= 60
 
 
 A = [110.5 198.5 0; 11 32 0; 1 1 -1; 0 0 1];
