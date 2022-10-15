@@ -17,7 +17,7 @@
 \newcommand{\getauthor}{Eric Johansson (erjo2002@student.miun.se)} %Author
 \newcommand{\gettitle}{Laboration 1 \\ Ekvationer och differensformler} %Title
 \newcommand{\getcourse}{(MA069G, Matematisk Modellering, 6hp)} %Course
-\newcommand{\getsupervisor}{Cornelia Schiebold \\Magnus Eriksson}
+\newcommand{\getsupervisor}{Magnus Eriksson}
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -53,7 +53,7 @@
     \vspace*{1cm}
     \includegraphics[width=0.8\textwidth]{msu.png}\\[0.5cm]
     \Large
-    Institution of Information Systems and -Technology (IST)\\[1cm]
+    Institutionen för matematik och ämnesdidaktik (MOD)\\[1cm]
     \Huge
     \textbf{\gettitle}
 
@@ -78,34 +78,38 @@
 \tableofcontents
 \newpage
 
+\section{Förord}
 Denna laboration ger er möjlighet att bekanta er med hur man använder
 Python för att lösa några enkla ickelinjära ekvationer samt undersöka
 några finita differensformler.
 
-För att utföra laborationen rekommenderas det att biblioteken numpy,
-sympy och matplotlib används. De installeras genom att skriva ``pip install \textit{namn}'' i terminalen.
-För många vanliga matematiska funktioner som till exempel sinus, kvadratroten och log krävs att ni importerar
-math-biblioteket i er skript.
+Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa 
+uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat, 
+plottar och egen text med ekvationer i ett och samma dokument, och köra all kod i dokumentet 
+i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anaconda, som du med 
+fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och 
+verktyg som är vanliga inom beräkningsvetenskap, datamining och maskininlärning, och som passar ihop.
 
-Ett exempel på start av er fil kan se ut såhär:
+För att utföra laborationen rekommenderas det att biblioteken numpy,
+sympy och matplotlib används. De är inkluderade i Anaconda men kan annars installeras genom att
+skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till 
+exempel sinus, kvadratroten och log krävs att ni importerar math-biblioteket i er skript.
+
+Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook
 \begin{lstlisting}[language=Python]
-"""
-Laboration X, uppgift Y 
-namn1, namn2, namn3
-Datum
-"""
 import math 
 import numpy as np
-import sympy as sp 
-from matplotlib import pyplot
+import sympy as sy
+from matplotlib import pyplot as plt
 \end{lstlisting}
 
 Därefter kan ni använda funktionaliteten från de olika biblioteken genom att
-kalla deras funktioner. Exempelvis math.sqrt(), math.cos(), sp.symbos()
+kalla deras funktioner. Exempelvis math.sqrt(), math.cos(), sy.symbos()
 
 I rapporten skall ni bifoga er kod, beräkningsresultat, diagram, korta svar och förklaringar.
 Allas namn och datum måste ingå i dokumentet.
 
+\newpage
 \section{Uppgift 1}
 
 Betrakta funktionen \( f(x) \) enligt :
@@ -138,31 +142,30 @@ Vilken av formlerna  \( D_1(x_0,h) \) och  \( D_2(x_0,h) \) var noggrannast,
 d.v.s skilde sig minst från värdet i (\ref{eqn:fxexakt})? Varför är den formeln mer noggrann?
 
 
-\newpage
 \section{Uppgift 2}
 Om man skulle testa att manuellt bestämma \( f'(x) \) av (\ref{eqn:fxq1})
 skulle man inse att det blir rätt så bökigt. Däremot kan man använda sig av Sympy för att räkna det symboliskt.
 
-Skriv först:
+Skriv först
 \begin{lstlisting}[language=Python]
 import sympy as sy
 
 x = sy.symbols("x")
 f = (sy.sqrt((x-5)**5) + 2*sy.cos(sy.pi*sy.sqrt(x)))/(sy.sqrt(x+4*sy.log(x-sy.pi))-1))
 \end{lstlisting}
-vilket anger \( f(x) \) symboliskt i python. Därefter skriv:
+vilket anger \( f(x) \) symboliskt i Python. Därefter skriv:
 
 \begin{lstlisting}[language=Python]
   f_prim = f.diff()
 \end{lstlisting}
 vilket ger uttrycket för derivatan.
 
-Sedan, skriv:
+Sedan, skriv
 
 \begin{lstlisting}[language=Python]
   f_prim_x0=f_prim.subs(x,7)
 \end{lstlisting}
-Vilket byter ut x till 7. För att sedan se resultatet skriv:
+Detta byter ut \(x\)  till 7. För att sedan se resultatet skriv:
 
 \begin{lstlisting}[language=Python]
   print(f_prim_x0.evalf(16))
@@ -223,8 +226,25 @@ print(f_biss_x_0.evalf(16))
 Exakta värdet ska bli 1.806906812550099. Använd även samma värde på \(h\)  som i Uppgift 3
 och extrapolera.
 
+\section{Uppgift 5} 
+Som vi sett i de tidigare uppgifterna tenderar ett lägre \(h\) att ge en approximering som är närmre det exakta värdet.
+I denna uppgift ska vi se hur litet vi kan göra \(h\). I Python finns ett tal, \(\epsilon\), som är det minsta talet så att \(1+\epsilon>1\). Detta tal kan du ta reda på genom att skriva:
+
+\begin{lstlisting}[language=Python]
+  import sys
+  print(sys.float_info.epsilon)
+\end{lstlisting}
+
+Testa approximera derivatan av \(f\) med hjälp av (\ref{eqn:framdiff}) med succesivt lägre värde på \(h\) från 0.1 
+till \(\epsilon\). 
+
+\textbf{Svara på följade frågor i rapporten}
+
+Vad händer med approximationen när \(h\) blir lägre och lägre? Varför?
+
+
 \newpage
-\section{Uppgift 5}
+\section{Uppgift 6}
 Nu ska vi ta reda på samtliga nollställen till funktionen:
 \begin{equation} \label{eqn:F}
   F(x)=-\left(\frac{x}{5}+\cos x\right)
@@ -232,15 +252,23 @@ Nu ska vi ta reda på samtliga nollställen till funktionen:
 
 Börja med att plotta kurvan genom att skriva:
 \begin{lstlisting}
-  x = ... 
-  F = ... 
-  pyplot 
+    x = np.arange(-100,100,0.1)
+    F = -(x/5+np.cos(x))
+
+    plt.title("Uppgift 5") 
+    plt.xlabel("x") 
+    plt.ylabel("F(x)") 
+    plt.xlim(a,b) 
+    plt.grid()
+    plt.axhline(linewidth = 1, color = "black")
+    plt.axvline(linewidth = 1, color = "black")
+    plt.plot(x,F)
+    plt.show()
 \end{lstlisting}
+Ändra \( a  \) och \( b  \) så att ni kan se ungefär var alla nollställen ligger.
 
 
-
-\newpage
-\section{Uppgift 6}
+\section{Uppgift 7}
 Problemet i (\ref{eqn:F}) kan lösas med Newton-Raphsons metod:
 \begin{equation} \label{eqn:newton_rhapson}
   x_{n+1}=x_n-\frac{F(x_n)}{F'(x_n)}
@@ -254,8 +282,7 @@ till (\ref{eqn:F}) med hjälp av (\ref{eqn:newton_rhapson}) och anteckna antalet
 iterationer. Testa med 6 st olika toleranser för lösningen.
 
 
-\newpage
-\section{Uppgift 7}
+\section{Uppgift 8}
 Problemet i (\ref{eqn:F}) kan även lösas med sekantmetoden:
 \begin{equation} \label{eqn:sekantmetoden}
   x_{n+2}=x_{n+1}-\frac{(x_{n+1}-x_n)F(x_{n+1})}{F(x_{n+1})-F(x_n)}
@@ -274,16 +301,15 @@ Fundera vilka fördelar och nackdelar som finns med de olika metoderna
 någon skillnad i antalet iterationer?
 
 
-\newpage
-\section{Uppgift 8}
+\section{Uppgift 9}
 I den sista uppgiften ska vi lösa problemet i (\ref{eqn:F}) med Sympys ``nsolve'':
 
 \begin{lstlisting}[language=Python]
-x = sp.Symbol('x')
-print(sp.nsolve(-x/5-sp.cos(x)), start))
+x = sy.Symbol('x')
+print(sy.nsolve(-x/5-sy.cos(x)), start))
 \end{lstlisting}
 
-Bestäm samtliga nollställen.
+Byt ut `start' mot lämpliga startvärden och bestäm samtliga nollställen.
 
 
 
