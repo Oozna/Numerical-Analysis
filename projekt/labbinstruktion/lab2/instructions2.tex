@@ -49,29 +49,28 @@
 \begin{document}
 
 \begin{titlepage}
-  \begin{center}
-    \vspace*{1cm}
-    \includegraphics[width=0.8\textwidth]{msu.png}\\[0.5cm]
-    \Large
-    Institutionen för matematik och ämnesdidaktik (MOD)\\[1cm]
-    \Huge
-    \textbf{\gettitle}
+    \begin{center}
+        \vspace*{1cm}
+        \includegraphics[width=0.8\textwidth]{msu.png}\\[0.5cm]
+        \Large
+        Institutionen för matematik och ämnesdidaktik (MOD)\\[1cm]
+        \Huge
+        \textbf{\gettitle}
 
-    \large
-    \getcourse{}
+        \large
+        \getcourse{}
 
-    \vspace{1cm}
+        \vspace{1cm}
 
-    \Large
-    \textbf{\getauthor}\\
-    \vfill
-    \vspace{0.8cm}
-    \small
-    \today \\
-    \Large
-    \textbf{Handledare:}\\
-    \getsupervisor{}
-  \end{center}
+        \Large
+        \vfill
+        \vspace{0.8cm}
+        \small
+        \today \\
+        \Large
+        \textbf{Handledare:}\\
+        \getsupervisor{}
+    \end{center}
 \end{titlepage}
 
 \lhead{Laboration 2}
@@ -83,20 +82,21 @@
 Denna laboration ger er möjlighet att bekanta er med Pythons
 möjligheter för att utföra Monte Carlo-simuleringar.
 
-Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa 
-uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat, 
-plottar och egen text med ekvationer i ett och samma dokument, och köra all kod i dokumentet 
-i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anaconda, som du med 
-fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och 
+Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa
+uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat,
+plottar och egen text med ekvationer i ett och samma dokument, och köra all kod i dokumentet
+i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anaconda, som du med
+fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och
 verktyg som är vanliga inom beräkningsvetenskap, datamining och maskininlärning, och som passar ihop.
 
 För att utföra laborationen rekommenderas det att biblioteken numpy,
 sympy och matplotlib används. De är inkluderade i Anaconda men kan annars installeras genom att
-skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till 
+skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till
 exempel sinus, kvadratroten och log krävs att ni importerar math-biblioteket i er skript.
 
 \textbf{Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook}
-\begin{lstlisting}[language=Python] import math
+\begin{lstlisting}[language=Python] 
+import math
 import from numpy import random
 import numpy as np
 import sympy as sy
@@ -109,19 +109,23 @@ kalla deras funktioner. Exempelvis math.sqrt(), math.cos(), sy.symbos(), random.
 I rapporten skall ni bifoga er kod, beräkningsresultat, diagram, korta svar och förklaringar.
 Allas namn och datum måste ingå i dokumentet.
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 \newpage
 \section{Uppgift 1}
-I Numpy i Python finns (bland annat) de två funktionerna \lstinline{random.normal()} och \lstinline{random.uniform()}. 
+I Numpy i Python finns (bland annat) de två funktionerna \lstinline{random.normal()} och \lstinline{random.uniform()}.
 De skapar slumptal ur 2 olika stokastiska fördelningar, nämligen \textit{likformig fördelning} och \textit{normalfördelning}.
-Det finns även andra fördelningar, men detta är de 2 viktigaste. Det finns 2 viktiga begrepp när det gäller 
-normalfördelning, nämligen \textit{väntevärde} (\(\mu\)) och \textit{varians} (\(\sigma^2\)). 
+Det finns även andra fördelningar, men detta är de 2 viktigaste. Det finns 2 viktiga begrepp när det gäller
+normalfördelning, nämligen \textit{väntevärde} (\(\mu\)) och \textit{varians} (\(\sigma^2\)).
 
 Hur dessa begrepp påverkar fördelningarna kommer att åskådliggöras när ni gör uppgifterna.
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 \subsection{a)}
 Använd \lstinline{python_normal} för att studera normalfördelningen. Börja med 100 slumptal,
 öka sedan successivt upp till 1000000 slumptal, d.v.s. kör \( N=100 \), 1000, 10000,
-100000, 1000000 (använd defaultvärden på medelvärde och varians, allstå skriv endast \( N \) ). 
+100000, 1000000 (använd defaultvärden på medelvärde och varians, allstå skriv endast \( N \)).
 
 
 \begin{lstlisting}[language=Python]
@@ -130,10 +134,11 @@ Använd \lstinline{python_normal} för att studera normalfördelningen. Börja m
     python_normal(N)
 \end{lstlisting}
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 \subsection{b)}
 Kör med 10000 slumptal men ange flera medelvärden, ni kan köra med 10 och 100,
-och en fast varians (kör variansen 1). Titta på de 2 figurerna som ni skapat 
-för de olika medelvärdena. 
+och en fast varians (kör variansen 1). Titta på de 2 figurerna som ni skapat
+för de olika medelvärdena.
 
 \begin{lstlisting}[language=Python]
     python_normal(10000, medel)
@@ -142,10 +147,11 @@ för de olika medelvärdena.
 \textbf{Svara på följande frågor i rapporten}\\
 Vad har medelvärdet för effekt på slumptalen?
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 \subsection{c)}
 Utför samma sak som i b), men använd ett fixt medelvärde (kör medelvärdet 0)
 och använd istället flera värden på variansen, ni kan köra med 1, 10 och 50.
-Titta på de 3 figurerna som ni skapat för de olika varianserna. 
+Titta på de 3 figurerna som ni skapat för de olika varianserna.
 
 \begin{lstlisting}[language=Python]
     python_normal(10000, 0, varians)
@@ -154,6 +160,7 @@ Titta på de 3 figurerna som ni skapat för de olika varianserna.
 \textbf{Svara på följande frågor i rapporten}\\
 Vad har variansen för effekt på slumptalen?
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 \subsection{d)}
 Använd funktionen DemoLikformf för att studera den likformiga fördelningen på intervallet \([0,1)\).
 Börja med 100 slumptal och öka sedan successivt upp till 1000000 slumptal. Ändra även intervallet.
@@ -165,60 +172,71 @@ Börja med 100 slumptal och öka sedan successivt upp till 1000000 slumptal. Än
 \textbf{Svara på följande frågor i rapporten}\\
 Hur ser kurvan ut för olika antal slumptal och för olika intervall?
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 \newpage
 \section{Uppgift 2}
 Man kan ställa sig frågan: ”Vad blir medelvärdet om vi kastar en tärning med 6 sidor numrerade \{1, 2, 3, 4, 5, 6\}?”
-Det har vi räknat ut tidigare och vi fick medelvärdet \( \mu=3.5 \). 
+Det har vi räknat ut tidigare och vi fick medelvärdet \( \mu=3.5 \).
 Men nu ska vi istället räkna ut det med Monte Carlo.
 Vad vi gör är att simulera \( n \)  tärningskast, lagra utfallen i en array \( y \)
-och räkna ut medelvärdet med \lstinline{np.mean(y)}. Man kan simulera tärningskast genom att 
-slumpa heltal i intervallet \( [1,6] \) där alla tal har lika stor sannolikhet, 
+och räkna ut medelvärdet med \lstinline{np.mean(y)}. Man kan simulera tärningskast genom att
+slumpa heltal i intervallet \( [1,6] \) där alla tal har lika stor sannolikhet,
 d.v.s. det blir en likformig fördelning, som i detta fall blir en diskret likformig fördelning.
 För att konstruera den diskreta likformiga fördelning på intervallet som behövs här kan man använda
 Numpys \lstinline{random.uniform()} enligt följande:
 
 \begin{lstlisting}[language=Python]
-    y = np.floor(1 + random.uniform(0, 6, 10))
+    y = np.floor(1 + 6*random.rand(n))
 \end{lstlisting}
 
 där \( n \)  är antalet slumptal och floor avrundar nedåt till närmaste heltal. \( y  \)
 innehåller då \( n \)  st slumpmässiga heltal i intervallet $[1,6]$.
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 \subsection{a)}
-Generera med koden arrayerna \lstinline{y1, y2, y3} med \( n_1=10^3 \), \( n_2=10^4 \), \( n_3=10^5 \),
+Generera arrayerna \lstinline{y1, y2, y3} med \( n_1=10^3 \), \( n_2=10^4 \), \( n_3=10^5 \),
 samt beräkna medelvärdet för var och en av arrayerna, \lstinline{medel_y1 = np.mean(y1)},
 \lstinline{medel_y2 = np.mean(y2)} och \\ \lstinline{medel_y3 = np.mean(y3)}.
 
 \textbf{Svara på följande frågor i rapporten}\\
 Stämmer det att skillnaden mellan beräknat medelvärde och det exakta bli mindre ju fler slumptal som används?
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 \subsection{b)}
 \label{sec:2b}
-Eftersom man får nya slumptal från rand varje gång man anropar funktionen kommer medelvärdena som 
-beräknas skilja sig något varje gång man utför beräkningen. 
+Eftersom man får nya slumptal från rand varje gång man anropar funktionen kommer medelvärdena som
+beräknas skilja sig något varje gång man utför beräkningen.
 Undersök detta genom att beräkna medelvärdena för 10 st kast per medelvärde som upprepas \( 10^3 \),
 \( 10^4 \) och \( 10^5 \) gånger.
 
-Importera tarning\_upprepa från python\_functions och kalla 3 gånger med olika antal upprepningar.
+Importera tarning\_upprepa från python\_functions och kalla enligt nedan.
 \begin{lstlisting}[language=Python]
     from python_functions import tarning_upprepa
 
-    tarning_upprepa(10, 1000)
-    tarning_upprepa(10, 10000)
-    tarning_upprepa(10, 100000)
+    tarning_upprepa()
 \end{lstlisting}
-Detta kommer ge 3 histogram, placera dem brevid varandra och jämför. 
+Detta kommer ge 3 histogram, placera dem brevid varandra och jämför.
 
 \textbf{Svara på följande frågor i rapporten}\\
-Påverkas denna fördelning i stort av de olika värdena på upprepning?
+Påverkas denna av de olika värdena på antalet upprepningar? Hur?
+
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 \subsection{c)}
 Testa nu att kasta lite fler tärningskast. Kör 200 kast per medelvärde och upprepa \( 10^5 \) gånger.
+\begin{lstlisting}[language=Python]
+    tarning_upprepa(200, [10**5])
+\end{lstlisting}
 
 \textbf{Svara på följande frågor i rapporten}\\
 Vad skiljer denna fördelningsfunktion mot fördelningsfunktionen i b)? Varför?
+\newpage
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-\subsection{d)}
 Vad du sett ovan är vad man inom statistiken kallar den centrala gränsvärdessatsen.
 Satsen säger i korthet att om man beräknar medelvärdet av ett stort antal slumptal,
 \( X_i \), för en viss sannolikhetsfunktion, \(f_X(x)\) , kommer medelvärdet, \(\bar{X}\),
@@ -228,10 +246,10 @@ vilken sannolikhetsfunktion som använts.
 
 Sannolikhetsfunktionen,\(f(x)\), för en normalfördelning är:
 \begin{equation} \label{eqn:normf}
-f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+    f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \end{equation}
 
-där \( \mu \) är väntevärdet och \( \sigma \) är standardavvikelsen. 
+där \( \mu \) är väntevärdet och \( \sigma \) är standardavvikelsen.
 
 Vi har beräknat medelvärden av tärningskasten, \( \bar{x}_n \), enligt:
 \begin{equation} \label{eqn:tarning_medel}
@@ -240,38 +258,71 @@ Vi har beräknat medelvärden av tärningskasten, \( \bar{x}_n \), enligt:
 
 Variansen för medelvärdet, \( V(\bar{x}_n) \), blir:
 \begin{equation} \label{eqn:varians}
-    V(\bar{x}_n)=V\left(\frac{1}{2}\sum_{i=1}^nx_i\right)= \frac{1}{n}V(x)=\frac{35}{12n}
+    V(\bar{x}_n)=V\left(\frac{1}{n}\sum_{i=1}^nx_i\right)= \frac{1}{n}V(x)=\frac{35}{12n}
 \end{equation}
 
 där talet \( \frac{35}{12}\approx 2.9 \) är variansen för en tärning, som har visats på föreläsning.
 
-Standardavvikelsen, \( \sigma \), blir då:
+Standardavvikelsen, \( \sigma_n\), blir då:
 
 \begin{equation} \label{eqn:stdev}
     \sigma_n=\sqrt{V(\bar{x}_n)}=\sqrt{\frac{35}{12n}}
 \end{equation}
 
-och väntevärdet är \( \mu=3.5 \) 
+och väntevärdet är \( \mu=3.5 \)
 
-Kör nu tarning\_upprepa funktionen med \( n=200 \) och \( N=10^5 \) igen. 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Skriv sedan hold nedanför loopen, vilket gör att vi kan fortsätta att plotta 
-i samma fönster utan att histogrammet försvinner. 
+\subsection{d)}
 
-Skapa en array x med samma gränser som i histogrammet och beräkna sedan värden 
-för sannolikhetsfunktionen i (\ref{eqn:normf}) kalla arrayen f där standardavvikelse 
-och väntevärde är enligt ovan. 
-Använd kommandot plot(x,1000*f) och visa labbhandledaren.
+Skapa en array x med samma gränser som histogrammet i föregående fråga
+och beräkna sedan värden för sannolikhetsfunktionen i (\ref{eqn:normf}).
+kalla arrayen f där standardavvikelse och väntevärde är enligt ovan.
 
+Kalla funktionen \lstinline{tarning_egen} enligt nedan och visa labbhandledaren.
+
+\begin{lstlisting}[language=Python]
+    from python_functions import tarning_egen
+
+    n = 200
+    N = 10**5
+
+    sigma = ???
+    mu = ???
+    x = np.arange(low, high, 0.01)
+    f = ???
+
+    tarning_egen(n, N, f * 1000, x)
+\end{lstlisting}
 
 \textbf{Svara på följande frågor i rapporten}\\
 Varför var vi tvungna att multiplicera f med 1000?
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+\newpage
 \subsection{e)}
+Simulera en fusktärning med valfri diskret sannolikhetsfunktion \( p(i) \), där \(i\)=1, 2 \ldots 6,
+representerad numeriskt av vektorn \lstinline{p}. Normera först vektorn så att \lstinline{np.sum(p)} är 1,
+och skapa en vektor \lstinline{F=np.cumsum(p)}, som representerar den samplade kumulativa
+fördelningsfunktionen (cdf:en). I en loop, skapa likformigt fördelade slumptal \( u \)
+(mellan 0 och 1) och transformera dem enligt metoden inverse transform sampling
+(googla på det), exempelvis genom att beräkna \lstinline{np.sum(u<F)+1} eller göra en caseswitch-sats.
+Plotta histogrammet genom att skriva
+\begin{lstlisting}[language=Python]
+    plt.hist(your variable name here)
+    plt.show()
+\end{lstlisting}
+jämför med p.
 
+\textbf{Svara på följande frågor i rapporten}\\
+Diskutera hur metoden skulle kunna användas för att generera en
+kontinuerlig stokastisk variabel med valfri täthetsfunktion f(y) och sampelvektor y
+mellan a och b.
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Uppgift 3}
-Ett användningsområde för Monte Carlo-metoder är beräkning av integraler av hög dimensionalitet. 
-Orsaken är att vid höga dimensioner blir kvadraturbaserade metoder såsom trapetsregeln eller 
+Ett användningsområde för Monte Carlo-metoder är beräkning av integraler av hög dimensionalitet.
+Orsaken är att vid höga dimensioner blir kvadraturbaserade metoder såsom trapetsregeln eller
 Simpsons regel alltför beräkningstunga.
 
 I den här uppgiften ska vi lösa en integral som i 1-D skrivs:
@@ -285,30 +336,34 @@ finns någon trivial lösning.
 
 Vi ska lösa integralen med en Monte Carlo metod enligt följande:
 \begin{equation} \label{eqn:integral_mc}
-\frac{2L}{N}\displaystyle\sum_{i=1}^{N}e^{-x^2}
+    \frac{2L}{N}\displaystyle\sum_{i=1}^{N}e^{-x^2}
 \end{equation}
 där \(N\) värden på \(x\) väljs slumpvis i intervallet \([-L,L]\)
 (i högre dimensioner blir det ett intervall per dimension).
 Vi ser att integralen approximeras med en summa och ju större värde på
 \(N\) desto bättre värde erhåller vi (om \(N,L \rightarrow \infty\) får vi exakta integralvärdet som är \( \sqrt{\pi} \)).
 
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 \subsection{a)}
-Använd integralgränserna [-5 5] i samtliga dimensioner. I 1--D blir det t.ex.:
+Imortera mc\_conv från python\_functions och använd integralgränserna \( [-5, 5] \) i samtliga dimensioner.
+I 1--D blir det t.ex.:
 \begin{lstlisting}
-  N, mu, err = mc_conv([-5 5], 1000)
+    from python_functions import mc_conv
+    N, mu, err = mc_conv(np.array([[-5, 5]]), 1000)
 \end{lstlisting}
 Testa \( N=1000 \), 10000, 100000, 1000000
 
-Gör sedan samma i 2--D
+Gör sedan detsamma i 2--D
 
 
-\textbf{Svara på följande frågor i rapporten} 
+\textbf{Svara på följande frågor i rapporten}
 
 Får du konvergens?
 
-Varför blir det olika svar för 1--D v.s. 2--D?
+Varför blir det olika svar för 1--D v.s. 2--D? Hur relaterar de till varandra?
 
-
+%────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 \subsection{b)}
 Nästa uppgift blir att ta reda på beräkningskomplexiteten \(p\), d.v.s.
@@ -320,7 +375,7 @@ Man kan göra följande ansats att felet, \(E\), ges enligt:
 \end{equation}
 
 Felet err och antal punkter \( N \)  är utparametrar till funktionen mc\_conv
-och motsvarar \(E\)  och \(N\) i (\ref{eqn:komplexitet}). 
+och motsvarar \(E\)  och \(N\) i (\ref{eqn:komplexitet}).
 Genom att använda kurvanpassning (linjär regression) på logaritmerade data kan vi uppskatta \(p\) och \(C\).
 
 Om vi logaritmerar (\ref{eqn:komplexitet}) får vi:
@@ -331,39 +386,55 @@ Om vi logaritmerar (\ref{eqn:komplexitet}) får vi:
 vilket är på formeln \(y=a_0+a_1x\) där \(y=\ln(E)\), \(a_0=\ln(C)\), \(a_1=p\) och \(x=\ln(N)\).
 
 
-I MATLAB kan vi använda följande kommandon för uppskattningen (i 1--D):
+Vi kan använda följande kod för uppskattningen (i 1--D):
 
-[N,mu, err] = mcconv([-5 5]); a = polyfit(log(N),log(err),1)
+\begin{lstlisting}[language=Python]
+    i = 6
+    mu = np.zeros(i)
+    err = np.zeros(i)
+    N = np.zeros(i)
 
-där exponenten \(p\)  finns i a[0] och konstanten \( \ln (C) \) i a[1] och vi har använt default- värdena på \( N \)  (se m-filen).
-För att erhålla säkrare resultat ska vi istället använda värdena N=[10000; 100000; 500000; 1000000] 
-med genomgående integralgränserna [-5 5] i samtliga dimensioner. 
-Fortsätt och undersök \( p \)  och \( C \)  även för 2--D integralen.
+    for j in range(i):
+        N[j], mu[j], err[j] = mc_conv(np.array([[-5, 5]]), 10 ** (j + 1))
 
+    a = np.polyfit(np.log(N), np.log(err), 1)
+\end{lstlisting}
+
+där exponenten \(p\) finns i a[0] och konstanten \( \ln (C) \) i a[1].
+Fortsätt och undersök \( p \)  och \( C \)  även för 2--D integralen och
+använd då gränserna [-5, 5] i alla dimensioner.
+
+\textbf{Svara på följande frågor i rapporten}
+
+Hur ändras \( p \) beroende på dimensionen?
+
+Hur ändras \( C \) beroende pådimensionen?
 
 \subsection{c)}
-En alternativ metod för beräkning av integralen är trapetsregeln. 
-Man delar då in intervallet \([-L, L]\) med ekvidistanta punkter. 
-Du behöver inte implementera den. 
+En alternativ metod för beräkning av integralen är trapetsregeln.
+Man delar då in intervallet \([-L, L]\) med ekvidistanta punkter.
+Du behöver inte implementera den.
 
-\textbf{Svara på följande frågor i rapporten} 
+\textbf{Svara på följande frågor i rapporten}
 
 Med 5 punkter likformigt utspridda i varje dimension, hur många punkter skulle
 det då bli för en 2--D integral? För en 10--D integral? För en 20--D integral?
 
+Vad finns det för fördelar och nackdelar med Monte Carlo kontra Trapetsregeln?
+
 \newpage
 \section{Uppgift 4}
 
-Blackjack är ett synnerligen populärt kortspel i t.ex. Las Vegas. 
+Blackjack är ett synnerligen populärt kortspel i t.ex. Las Vegas.
 Om en spelare vill öka sina chanser att vinna finns det ett antal regler att
 förhålla sig till (``Basic Strategy''). Man kan komma fram till dessa strategier
-med hjälp av stokastiska metoder/sannolikhetsteori inom matematik, men det är oerhört 
-mycket enklare att designa ett ``Monte Carlo game''. Man kan då komma fram till precis 
+med hjälp av stokastiska metoder/sannolikhetsteori inom matematik, men det är oerhört
+mycket enklare att designa ett ``Monte Carlo game''. Man kan då komma fram till precis
 samma resultat som de mer avancerade metoderna.
 
 I m-filen blackjacksim(n) simuleras \(n\) st Blackjack-omgångar.
 
-Antag att vi går på Casino Cosmopol i Sundsvall årets samtliga dagar, 365 st. 
+Antag att vi går på Casino Cosmopol i Sundsvall årets samtliga dagar, 365 st.
 Varje dag spelar vi 100 st Blackjack-omgångar, d.v.s. under en dag kör vi \lstinline{bs=blackjacksim(100)},
 där det skapas en array bs med den ackumulerade vinsten eller förlusten för varje omgång
 och det sista elementet i arrayen innehåller antal kronor du vunnit eller förlorat.
@@ -373,7 +444,7 @@ Testa att plotta några omgångar med plot(blackjacksim(100)). Man ser att det �
 Uppgiften är nu att skriva ett Python-skript som beräknar vinsten/förlusten varje dag under 1
 helt år och summerar ihop slutresultatet varje dag för att se om det kanske blir vinst totalt under året.
 
-\textbf{Svara på följande frågor i rapporten} 
+\textbf{Svara på följande frågor i rapporten}
 
 Tycker du dig se om det blir vinst eller förlust?
 
