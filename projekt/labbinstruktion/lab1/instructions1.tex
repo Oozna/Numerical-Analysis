@@ -62,8 +62,6 @@
 
     \vspace{1cm}
 
-    \Large
-    \textbf{\getauthor}\\
     \vfill
     \vspace{0.8cm}
     \small
@@ -84,16 +82,16 @@ Denna laboration ger er möjlighet att bekanta er med hur man använder
 Python för att lösa några enkla ickelinjära ekvationer samt undersöka
 några finita differensformler.
 
-Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa 
-uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat, 
-plottar och egen text med ekvationer i ett och samma dokument, och köra all kod i dokumentet 
-i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anaconda, som du med 
-fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och 
+Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa
+uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat,
+plottar och egen text med ekvationer i ett och samma dokument, och köra all kod i dokumentet
+i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anaconda, som du med
+fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och
 verktyg som är vanliga inom beräkningsvetenskap, datamining och maskininlärning, och som passar ihop.
 
 För att utföra laborationen rekommenderas det att biblioteken numpy,
 sympy och matplotlib används. De är inkluderade i Anaconda men kan annars installeras genom att
-skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till 
+skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till
 exempel sinus, kvadratroten och log krävs att ni importerar math-biblioteket i er skript.
 
 Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook
@@ -113,7 +111,7 @@ Allas namn och datum måste ingå i dokumentet.
 \newpage
 \section{Uppgift 1}
 
-Betrakta funktionen \( f(x) \) enligt :
+Betrakta funktionen \( f(x) \) enligt:
 \begin{equation} \label{eqn:fxq1}
   f(x)=\frac{\sqrt{(x-5)^5}+2\cos (\pi\sqrt{x})}{\sqrt{x+4 \ln (x-\pi)}-1}
 \end{equation}
@@ -152,7 +150,7 @@ Skriv först
 import sympy as sy
 
 x = sy.symbols("x")
-f = (sy.sqrt((x-5)**5) + 2*sy.cos(sy.pi*sy.sqrt(x)))/(sy.sqrt(x+4*sy.log(x-sy.pi))-1))
+f = (sy.sqrt((x-5)**5) + 2*sy.cos(sy.pi*sy.sqrt(x)))/(sy.sqrt(x+4*sy.log(x-sy.pi))-1)
 \end{lstlisting}
 vilket anger \( f(x) \) symboliskt i Python. Därefter skriv:
 
@@ -227,7 +225,7 @@ print(f_biss_x_0.evalf(16))
 Exakta värdet ska bli 1.806906812550099. Använd även samma värde på \(h\)  som i Uppgift 3
 och extrapolera.
 
-\section{Uppgift 5} 
+\section{Uppgift 5}
 Som vi sett i de tidigare uppgifterna tenderar ett lägre \(h\) att ge en approximering som är närmre det exakta värdet.
 I denna uppgift ska vi se hur litet vi kan göra \(h\). I Python finns ett tal, \(\epsilon\), som är det minsta talet så att \(1+\epsilon>1\). Detta tal kan du ta reda på genom att skriva:
 
@@ -236,8 +234,8 @@ I denna uppgift ska vi se hur litet vi kan göra \(h\). I Python finns ett tal, 
   print(sys.float_info.epsilon)
 \end{lstlisting}
 
-Testa approximera derivatan av \(f\) med hjälp av (\ref{eqn:framdiff}) med succesivt lägre värde på \(h\) från 0.1 
-till \(\epsilon\). 
+Testa approximera derivatan av \(f\) med hjälp av (\ref{eqn:framdiff}) med succesivt lägre värde på \(h\) från 0.1
+till \(\epsilon\).
 
 \textbf{Svara på följade frågor i rapporten}
 
