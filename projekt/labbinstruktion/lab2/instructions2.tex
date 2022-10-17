@@ -10,6 +10,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[style=ieee, backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{../sources.bib}
 \setcounter{secnumdepth}{0}
 \pagestyle{fancy}
 \fancyhf{}
@@ -89,10 +92,12 @@ i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anacond
 fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och
 verktyg som är vanliga inom beräkningsvetenskap, datamining och maskininlärning, och som passar ihop.
 
-För att utföra laborationen rekommenderas det att biblioteken numpy,
-sympy och matplotlib används. De är inkluderade i Anaconda men kan annars installeras genom att
-skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till
-exempel sinus, kvadratroten och log krävs att ni importerar math-biblioteket i er skript.
+För att utföra laborationen rekommenderas det att biblioteken numPy \cite{numpy-main},
+symPy \cite{sympy-main} och matplotlib \cite{matplotlib-main} används. De är inkluderade i Anaconda men kan annars installeras genom att
+skriva ``pip install \textit{namn}'' i terminalen i Windows eller ``pip3 install \textit{namn}'' på Mac eller Linux. 
+För många vanliga matematiska funktioner som till
+exempel sinus, kvadratroten och log kan det krävas att ni importerar math-biblioteket i er skript men generellt kan numPys
+verisioner av dessa funktioner användas istället.
 
 \textbf{Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook}
 \begin{lstlisting}[language=Python] 
@@ -104,7 +109,7 @@ from matplotlib import pyplot as plt
 \end{lstlisting}
 
 Därefter kan ni använda funktionaliteten från de olika biblioteken genom att
-kalla deras funktioner. Exempelvis math.sqrt(), math.cos(), sy.symbos(), random.randint()
+kalla deras funktioner. Exempelvis math.sqrt(), np.cos(), sy.symbos(), random.randint()
 
 I rapporten skall ni bifoga er kod, beräkningsresultat, diagram, korta svar och förklaringar.
 Allas namn och datum måste ingå i dokumentet.

@@ -10,6 +10,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[style=ieee, backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{../sources.bib}
 \setcounter{secnumdepth}{0}
 \pagestyle{fancy}
 \fancyhf{}
@@ -72,14 +75,14 @@
   \end{center}
 \end{titlepage}
 
-\lhead{Laboration 1}
+\lhead{Laboration 3}
+\rhead{Markovkedjor och Köteori}
 \tableofcontents
 \newpage
 
 \section{Förord}
-Denna laboration ger er möjlighet att bekanta er med hur man använder
-Python för att lösa några enkla ickelinjära ekvationer samt undersöka
-några finita differensformler.
+Denna laboration ger er möjlighet att bekanta er Markovkedjor och köteori
+och hur man kan använda Python för att beräkna stationära sannolikheter.
 
 Det rekommenderas att ni använder er av verktyget Jupyter Notebooks för att lösa
 uppgifterna. I det verktyget kan man sammanställa block med Python-kod, beräkningsresultat,
@@ -88,12 +91,14 @@ i följd eller interaktivt. Jyputer Notebook ingår i utvecklingsmiljön Anacond
 fördel kan välja att installera och använda, eftersom den innehåller Pythonbibliotek och
 verktyg som är vanliga inom beräkningsvetenskap, datamining och maskininlärning, och som passar ihop.
 
-För att utföra laborationen rekommenderas det att biblioteken numpy,
-sympy och matplotlib används. De är inkluderade i Anaconda men kan annars installeras genom att
-skriva ``pip install \textit{namn}'' i terminalen. För många vanliga matematiska funktioner som till
-exempel sinus, kvadratroten och log krävs att ni importerar math-biblioteket i er skript.
+För att utföra laborationen rekommenderas det att biblioteken numPy \cite{numpy-main},
+symPy \cite{sympy-main} och matplotlib \cite{matplotlib-main} används. De är inkluderade i Anaconda men kan annars installeras genom att
+skriva ``pip install \textit{namn}'' i terminalen i Windows eller ``pip3 install \textit{namn}'' på Mac eller Linux.
+För många vanliga matematiska funktioner som till
+exempel sinus, kvadratroten och log kan det krävas att ni importerar math-biblioteket i er skript men generellt kan numPys
+verisioner av dessa funktioner användas istället.
 
-Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook
+\textbf{Instruktionerna kommer utgå ifrån att ni har skrivit detta i början av er fil / notebook}
 \begin{lstlisting}[language=Python]
 import math 
 import numpy as np
@@ -102,7 +107,7 @@ from matplotlib import pyplot as plt
 \end{lstlisting}
 
 Därefter kan ni använda funktionaliteten från de olika biblioteken genom att
-kalla deras funktioner. Exempelvis math.sqrt(), math.cos(), sy.symbos()
+kalla deras funktioner. Exempelvis math.sqrt(), np.cos(), sy.symbols()
 
 I rapporten skall ni bifoga er kod, beräkningsresultat, diagram, korta svar och förklaringar.
 Allas namn och datum måste ingå i dokumentet.
@@ -125,7 +130,7 @@ Sambandet under en given vecka illustreras i Figur \ref{fig:bbr}
 Från Figur \ref{fig:bbr} kan man räkna ut hur fördelningen kan väntas vara på lång sikt gällande Bull, Bear samt Recession.
 Detta kan vara till hjälp för de som investerar i marknaden.
 
-\section{Uppgift 1: : Iterativ numerisk beräkning}
+\section{Uppgift 1: Iterativ numerisk beräkning}
 \subsection{a)}
 Sätt upp överföringsmatrisen \( P \) för problemet i Figur \ref{fig:bbr} så att radsumman blir 1.
 
@@ -147,7 +152,7 @@ Har startvektorn betydelse för det stationära resultatet, dvs är det en icke-
 Har startvektorn betydelse för konvergenstiden? Vilken startvektor ger isåfall snabbast
 lösning, inom en iteration?
 
-\section{Uppgift 2}
+\section{Uppgift 2: Exakt beräkning}
 Verifiera svaret i Uppgift 1 genom att lösa ekvationer för stationära sannolikheter
 
 (ett egenvärdesproblem), genom att sätta nuvarande tillstånd lika med nästa tillstånd, och
@@ -157,10 +162,11 @@ använda np.linalg.lstsq(), utnycka sympy eller använda
 webbplatsen Wolfram Alpha.
 
 \textbf{Svara på följande frågor i rapporten}
+
 Vad är det exakta värdena?
 
 
-\section{Uppgift 3}
+\section{Uppgift 3: Stokastisk simulering}
 Skapa en stokastisk simulering (Monte Carlo-simulering) av Markovkedjan med hjälp av
 slumptalsgenerering och metoden inverse transform sampling. Slumpa ett starttillstånd \( k \) som
 talen 1, 2 eller 3, eventuellt baserat på en startvektor. Om nuvarande tillstånd är \( k \), anges
@@ -177,7 +183,7 @@ tillståndens frekvenser konvergerar mot en stationär lösning med rimlig noggr
 Är detta snabbare eller långsammare än metod 1?
 
 
-\section{Uppgift 4}
+\section{Uppgift 4: Markov-egenskapernas betydelse}
 Genom att ändra lite i övergångssannolikheterna i Figur 1 kan man analysera hur den
 stationära lösningen ändras. Ge exempel på en förändring av sannolikheterna som skulle ge
 en icke-ergodisk process och därmed inte skulle ge stationär lösning oberoende av
@@ -200,7 +206,8 @@ metoderna i uppgift 1, 2 respektive 3. I vilka fall måste metoden i uppgift 1 o
 med en yttre loop som slumpar flera olika starttillstånd, och beräknar ensemblemedelvärdet
 av de olika utfall som då erhålles?
 
-\section{Uppgift 5}
+\newpage
+\section{Uppgift 5: Kösystem}
 Betrakta en liten butik med plats för fyra kunder. Den kan vara i fem olika tillstånd: 0, 1, 2, 3
 eller 4 kunder i butiken. Två kassörer betjänar högst två kunder samtidigt, medan övriga
 kunder står i kö. Vid fyra kunder i butiken väntar således två i kö medan två betjänas.
