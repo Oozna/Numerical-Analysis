@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage{listings}
+
+\title{Python for numerical analysis}
+
+\author{Eric Johansson\\Can Kupeli\\Samuel Greenberg}
+
+
+
+\begin{document}
+\maketitle
+\newpage
+
+
+
+\section{Introduction}%
+\label{sec:introduction}
+Throughout the years there have been many different languages used for mathematical computing.
+Traditionally the base algorithms, functions and libraries are created in a low level language like C, C++ or Fortran and then wrapped
+in a higher order language such as Matlab, Julia or Python.
+
+This report aims to analyse the use of Python for numerical computation and compare it to Matlab.
+
+\section{background}%
+\label{sec:background}
+
+Python was first created in the late 1980s by Guido van Rossum in the Netherlands and has since gone through three different stages.
+It is a general purpose programming language (GPL) which is open source and has a very thriving community. This is the thing that has
+directly led to the feature that allows Python to be an effective language for mathematical purposes, namely NumPy.
+NumPy is a library for Python which uses arrays as their base data structure which allows for fast and efficient handling of data.
+SciPy is another library made by the same author which includes many solvers and operations which are used in the scientific field, such
+as regression formulas, integral solvers, ordenary differential equation solvers and more.
+Another vital add-on to the Python ecosystem is MatPlotLib, which allows users to visualize their data in many different ways.
+An alternative to Matlabs symbolic toolbox can be found in the SymPy library. It introduces a way to work symbolically to simplify
+equations, find derivatives, antiderivatives and much more. When referencing to Python in the rest of the paper it is assumed that these
+libraries are included.
+
+Matlab on the other hand is a program which was also released in the 1980s. It's developed and owned by MathWorks in Massachussets US and
+is as such a proprietary software. It was originally not even a programming language but a ``simple'' interactive matrix calculator which
+is why it uses a matrix as its default type for values. The underlying language was initially written in Fortran but later rewritten
+in C. However unlike C, Matlab is not a GPL but is specifically meant to be used for mathematical calculations. Matlab is as mentioned before a proprietary software that is distributed through a pay for license model with yearly subscriptions.
+
+\section{Python compared to Matlab}%
+\label{sec:pcm}
+Recently there has been a trend for mathematicians and scientists to move away from Matlab and transition towards Python and other
+languages such as Julia. There can be many different reasons for this and each persons decision is unique to them, however here we will
+compare some of the reasons as to why someone would or would not use one language over the other.
+
+\subsection{Open source}%
+Most modern day programming-languages and frameworks are open source which allows users of the product to directly contribute to the
+project by implementing new features, fixing bugs, creating optimizations and more. This is not only limited to the core part of the
+languages such as compilers and standard functions but it also allows for easier creation of libraries and customizability of the code
+they are running.
+
+As mentioned in chapter`~`\ref{sec:background} Python is open source whilst Matlab is not. For some people this is a deal-breaker,
+presumably more so in the mathematical and scientific world since the scientific method revolves around sharing information and knowledge
+to build great things together. Another reason is the financial applications which creates a lower barrier for entry to start using the
+software.
+
+However it may also be comforting to know that the tool you are using is backed and maintained by a large corporation and only
+professional developer which is the case for Matlab.
+
+\subsection{Performance}%
+The performance between the two languages are quite comparable, while there isn't much scientific litterature on this topic anecdotally
+they compare quite similarly when adhering to the ways the different languages are intended to be used. For example passing by value for
+python instead of passing by index. This is not very surprising since both languages use C as their underlying ``engine'' and uses Basic
+Linear Algebra Subprograms (BLAS) as the low-level routines for performing common linear algebra operations.
+
+\subsection{Uses outside of maths}
+Python, being a GPL, is used for many things outside of mathematical computation. Python is very common in the Machine Learining and Data
+analysis fields, web-frameworks such as Flask and Django power some of the biggest sites on the internet, such as Youtube, and Python is
+also useful as a general scripting language for automations, webscrapers et.c. Matlabs killer feature in this domain is the second
+biggest product made by Mathworks namely Simulink. It's used to simulate and analyze multidomain dynamical systems with ``graphical block diagramming tool''-interface.
+
+\subsection{Style}
+Since Python is meant for much more than just maths it requires libraries to be included and referenced to use it to the fullest extent.
+This creates some rather annoying and ugly syntax like writing:
+\begin{lstlisting}[language=Python]
+y = lambda x: math.exp(x*math.sin(2*x))
+\end{lstlisting}
+needing to reference math.\ every time while in Matlab the code looks more concise.
+\begin{lstlisting}[language=Matlab]
+y = @(x) exp(x*sin(2*x))
+\end{lstlisting}
+This is a result of Pythons need to not hog up the standard namespace since such operations may not be necessary for someone creating a
+web application. Matlab has it's clear purpose and can therefore afford to make it simple for it's developers.
+
+
+
+\section{Python style}%
+\subsection{Formatting}
+Python has, unlike many other languages, a set standard for how it's supposed to be written. These are defined in the pep8 guidelines
+which states, among other things, wether you should use spaces or tabs, snakecase or camelcase and much more. However this is not
+enforced by the language so users are free to do as they please but it creates a good goal for how readable Python code is supposed to
+be written.
+
+As such mathematicians have the possibility of writing their formulas to closely resemble the equations or functions they are solving
+by using inline (lambda) functions, even though it is not recommended by the language to do so. Readability in programming and math are
+not always the same where programmers often prefer to keep things modular, separated and humanly readable mathematicians often prefer
+to write in such a way that it's as similar to the way they would write on paper, few parentheses, assigning functions to variables et.c.
+Python enables people to do that, but strongly encourage them not to.
+
+\subsection{Programming paradigm}
+When it comes to vector or matrix algebra it's recommended to use the built in functions of NumPy and to vectorize the problems
+as much as possible to avoid loops.
+
+If we have an array with values 1,2,\ldots,100 and would like to increment each by one a new programmer or someone coming from another
+language may create a loop like this:
+\begin{lstlisting}[language=Python]
+for element in array:
+  element += 1
+\end{lstlisting}
+However both the performance and readability of this is much lower compared to the recommended method (assuming that the array is a
+numPy array):
+\begin{lstlisting}[language=Python]
+array += 1
+\end{lstlisting}
+
+As mentioned this comes with huge performane gains since numPy is built in C and has internal optimizations for matrix algebra and also
+expresses intent more whilst taking up less space.
+
+There are also other features that makes Python avoid loops such as list comprehension, however those methods are not as applicable
+in the mathematical field as they are in software development and as such will not be discussed here
+
+
+
+
+\section{Conclusion}%
+While there is no real conclusion to the question if one should use Python for mathematical computing or not it is good to know that
+it is a serious and growing option in the field. Many schools such as KTH have already replaced Matlab with Python for some of their
+engineering programmes. The style may not be optimal and can look cluttered with a lot of namespace references but the familiarity with
+it can be used to transition into other fields and aid in become both a better programmer and mathematician at the same time.
+
+
+
+
+\end{document}
