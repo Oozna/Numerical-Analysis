@@ -17,9 +17,9 @@ P = [
 mc = dtmc(P);
 real = asymptotics(mc);
 
-L = sum([0,1,2,3,4] .* real)
+L = sum([0,1,2,3,4] .* real);
 
-b = L/lambda;
+LittlesLaw = L/lambda
 
 %little = (lambda.^2)/(mu*(mu-lambda))
 
