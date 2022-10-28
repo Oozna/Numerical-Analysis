@@ -212,12 +212,8 @@ def blackjack_hand_result(bet=10,player_hand='q', dealer_card='q', hard_code= 4)
     
     hard_stay=False
     
-    #Creating a random hand if none is input
-    
     
     player_hand=[random.choice(deck), random.choice(deck)]
-        
-    #Turning on hard stay for split aces
         
     if player_hand==[1]:
         hard_stay==True
@@ -227,110 +223,74 @@ def blackjack_hand_result(bet=10,player_hand='q', dealer_card='q', hard_code= 4)
     while len(player_hand)<2:
         player_hand.append(random.choice(deck))
         
-    #Creating dealer card, and dealer cards
         
     
     dealer_card=random.choice(deck)
         
     dealer_cards=[dealer_card]
     
-    
-    #If hard stay condition is false
         
     if hard_stay==False:
         
-        #Seeing if player hit blackjack
         
         
         if BlackJackStrategy(player_hand, dealer_card) == 'Blackjack':
-            
-            #Seeing if casino also hit blackjack, in which case tie
             
             dealer_cards.append(random.choice(deck))
             if 1 in (dealer_cards):
                 if sum(dealer_cards)==11:
                     return 0
                 
-             #Blackjack bonus, if not   
-
             return bet*1.5
         
         else:
-        #Seeing how often it says to 'hit'
-
             while BlackJackStrategy(player_hand, dealer_card) == 'Hit':
-                #Adding one card for every hit
                 player_hand.append(random.choice(deck))
 
-                #Player loses bet if hand goes above 21
                 if sum(player_hand)>21:
                     return 0- bet
 
-                #If player Doubles
 
             if BlackJackStrategy(player_hand, dealer_card)=='Double':
-                #He gets exactly one extra card and the bet size is doubled
                 player_hand.append(random.choice(deck))
                 bet= bet * 2
                 if sum(player_hand)>21:
                     return 0- bet
 
-                #If player Splits
 
             if BlackJackStrategy(player_hand, dealer_card)== 'Split':
-
-                #Runs the sim twice, as different hands, slightly less variance than real life, but it's okay
-
                 res= blackjack_hand_result(bet, [player_hand[0]], dealer_card) 
                 res+= blackjack_hand_result(bet, [player_hand[0]], dealer_card)
-                
-
                 return res
         
         while True:
             #Plays out the blackjack hand from dealer's side
             
-            #Give dealer extra card if loop hasn't broken
             dealer_cards.append(random.choice(deck))
-            
-            
-            #Keep track of sum of dealer's cards
             dealer_score= sum(dealer_cards)
-            
-            #Keep track of soft score if dealer has an ace
-            
             soft_score= dealer_score
             if dealer_score<=11 and 1 in dealer_cards:
                 soft_score+=10
-                
-            #If dealer gets blackjack you lose even if you have 21
+
             if len(dealer_cards)==2 and soft_score==21:
                 return 0-bet
                 
-            #Keeps track of player's score     
             player_score=sum(player_hand)
             
-            #Uses soft score if that is better for player
             if player_score<=11 and 1 in player_hand:
                 player_score+=10
                 
             
-            #Dealer stays on all 17s
             if soft_score>=17:
-                
-                #If dealer bust, player wins bet
                 if soft_score>21:
                     return bet
                 
-                #If player has more than dealer, player wins bet
                 if player_score>soft_score:
                     return bet
                 
-                #Tie means no money changes hands
                 if player_score==soft_score:
                     return 0
                 
-                #If player has lower, player loses bet
                 if player_score<soft_score:
                     return 0 - bet
                 
@@ -338,52 +298,36 @@ def blackjack_hand_result(bet=10,player_hand='q', dealer_card='q', hard_code= 4)
        
     
     if hard_stay==True:
-        
         #Plays out only dealer's side, as player has to stop after 1 card
         
         while True:
-
-                #Give dealer extra card if loop hasn't broken
             dealer_cards.append(random.choice(deck))
             
-            
-            #Keep track of sum of dealer's cards
             dealer_score= sum(dealer_cards)
-            
-            #Keep track of soft score if dealer has an ace
             
             soft_score= dealer_score
             if dealer_score<=11 and 1 in dealer_cards:
                 soft_score+=10
                 
-            #If dealer gets blackjack you lose even if you have 21
             if len(dealer_cards)==2 and soft_score==21:
                 return 0-bet
                 
-            #Keeps track of player's score     
             player_score=sum(player_hand)
             
-            #Uses soft score if that is better for player
             if player_score<=11 and 1 in player_hand:
                 player_score+=10
                 
-            
-            #Dealer stays on all 17s
             if soft_score>=17:
                 
-                #If dealer bust, player wins bet
                 if soft_score>21:
                     return bet
                 
-                #If player has more than dealer, player wins bet
                 if player_score>soft_score:
                     return bet
                 
-                #Tie means no money changes hands
                 if player_score==soft_score:
                     return 0
                 
-                #If player has lower, player loses bet
                 if player_score<soft_score:
                     return 0 - bet
                 

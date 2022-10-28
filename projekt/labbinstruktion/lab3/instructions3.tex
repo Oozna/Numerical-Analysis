@@ -17,7 +17,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{12.31253pt}
-\newcommand{\getauthor}{Eric Johansson (erjo2002@student.miun.se)} %Author
+\newcommand{\getauthor}{Eric Johansson (erjo2002@student.miun.se)\\
+                        Can Kupeli (caku2002@student.miun.se)\\
+                        Samuel Greenberg (sagr1908@student.miun.se)} %Author
 \newcommand{\gettitle}{Laboration 3 \\ Markovkedjor och Köteori} %Title
 \newcommand{\getcourse}{(MA069G, Matematisk Modellering, 6hp)} %Course
 \newcommand{\getsupervisor}{Magnus Eriksson}
@@ -64,7 +66,7 @@
     \getcourse{}
 
     \vspace{1cm}
-
+    \getauthor{}
     \vfill
     \vspace{0.8cm}
     \small
@@ -154,11 +156,10 @@ lösning, inom en iteration?
 
 \section{Uppgift 2: Exakt beräkning}
 Verifiera svaret i Uppgift 1 genom att lösa ekvationer för stationära sannolikheter
-
 (ett egenvärdesproblem), genom att sätta nuvarande tillstånd lika med nästa tillstånd, och
 kombinera det med att summan av sannolikheterna ska bli 1. Använd gärna flera metoder: Du
 kan handräkna med insättningsmetoden eller gausselimination,
-använda np.linalg.lstsq(), utnycka sympy eller använda
+använda np.linalg.lstsq(), utnyttja sympy.stats.DiscreteMarkovChain eller använda
 webbplatsen Wolfram Alpha.
 
 \textbf{Svara på följande frågor i rapporten}
@@ -248,7 +249,8 @@ Uppskatta kundernas genomsnittliga tid i butiken (och/eller i kön) enligt Littl
 
 
 
-
+\newpage
+\printbibliography{}
 
 
 
