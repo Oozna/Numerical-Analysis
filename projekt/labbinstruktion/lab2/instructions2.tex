@@ -437,14 +437,14 @@ med hjälp av stokastiska metoder/sannolikhetsteori inom matematik, men det är 
 mycket enklare att designa ett ``Monte Carlo game''. Man kan då komma fram till precis
 samma resultat som de mer avancerade metoderna.
 
-I m-filen blackjacksim(n) simuleras \(n\) st Blackjack-omgångar.
-
 Antag att vi går på Casino Cosmopol i Sundsvall årets samtliga dagar, 365 st.
-Varje dag spelar vi 100 st Blackjack-omgångar, d.v.s. under en dag kör vi \lstinline{bs=blackjacksim(100)},
-där det skapas en array bs med den ackumulerade vinsten eller förlusten för varje omgång
-och det sista elementet i arrayen innehåller antal kronor du vunnit eller förlorat.
+Varje dag spelar vi 100 st Blackjack-omgångar, d.v.s. under en dag kör vi 
+\begin{lstlisting}[language=Python]
+    from python_functions import blackjacksim
 
-Testa att plotta några omgångar med plot(blackjacksim(100)). Man ser att det är väldiga skillnader i resultaten.
+    bs = blackjacksim(100, 10)
+\end{lstlisting}
+där bs kommer ge totala vinsten/förlusten för 100 omgångar blackjack om du satsar 10kr per hand.
 
 Uppgiften är nu att skriva ett Python-skript som beräknar vinsten/förlusten varje dag under 1
 helt år och summerar ihop slutresultatet varje dag för att se om det kanske blir vinst totalt under året.
